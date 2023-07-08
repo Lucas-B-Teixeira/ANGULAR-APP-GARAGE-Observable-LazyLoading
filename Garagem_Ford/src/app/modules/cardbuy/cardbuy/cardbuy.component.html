@@ -1,0 +1,45 @@
+
+<app-mainpage></app-mainpage>
+<div class="buycars">
+    <div *ngFor="let Cards of cardsBuy; index as i">
+        <div *ngIf="Cards.status == 'BUY'" class="cardbuy">
+            <div class="cardbuy__img">
+                <img class="cardbuy__img__photo" src={{Cards.urlImage}} alt="">
+            </div>
+            <div class="cardbuy__info">
+                <div routerLink="/carro/{{Cards.id}}"  class="cardbuy__info__box">
+                    <div class="cardbuy__info__model">
+                        <h3>Modelo:</h3>
+                        <h3>{{ Cards.model }}</h3>
+                    </div>
+                    <div class="cardbuy__info__brand">
+                        <h3>Marca:</h3>
+                        <h3>{{ Cards.brand }}</h3>
+                    </div>
+                    <div class="cardbuy__info__color">
+                        <h3>Cor:</h3>
+                        <h3>{{ Cards.color }}</h3>
+                    </div>
+                    <div class="cardbuy__info__year">
+                        <h3>Ano:</h3>
+                        <h3>{{ Cards.year }}</h3>
+                    </div>
+                    <div class="cardbuy__info__price">
+                        <h3>Preço:</h3>
+                        <h3>{{ Cards.price | currency:'BRL' }}</h3>
+                    </div>
+                </div>
+                
+                <div class="cardbuy__info__button">
+                    <button (click)="buyCar(Cards)" class="cardbuy__info__button__btn">{{ Cards.status }}</button>
+                    <button (click)="removeCar(Cards.id)" class="cardbuy__info__button__lix"><img class="cardbuy__info__button__lix__img" src="https://cdn-icons-png.flaticon.com/512/18/18297.png" alt=""></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div routerLink="/adicionar" class="cardplus">
+        <h1>+</h1>
+    </div>
+</div>
+

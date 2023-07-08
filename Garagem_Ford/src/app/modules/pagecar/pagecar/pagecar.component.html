@@ -1,0 +1,94 @@
+<header>
+    <div class="header__list">
+      <ul class="header__list__options">
+        <dt routerLink="/garagem" class="header__list__options__garagem">Minha Garagem</dt>
+        <dt routerLink="/loja"  class="header__list__options__venda">Loja de Carros</dt>
+      </ul>
+    </div>
+</header>
+
+<div class="conteiner">
+    <div class="conteiner__box">
+        <div class="conteiner__box__img">
+            <img class="conteiner__box__img__foto" src="{{car.urlImage}}" alt="">
+        </div>
+
+        <div class="conteiner__box__info">
+            <div class="conteiner__box__info__id">
+                <h4>ID:</h4>
+                <h4>{{ car.id }}</h4>
+            </div>
+
+            <div class="conteiner__box__info__model">
+                <h4>Modelo:</h4>
+                <h4>{{ car.model }}</h4>
+            </div>
+
+            <div class="conteiner__box__info__brand">
+                <h4>Marca:</h4>
+                <h4>{{ car.brand }}</h4>
+            </div>
+
+            <div class="conteiner__box__info__color">
+                <h4>Cor:</h4>
+                <input class="conteiner__box__info__color__input" *ngIf="editCar == true" type="text" value="{{ car.color }}" [(ngModel)]="car.color">
+                <h4 *ngIf="editCar == false">{{ car.color }}</h4>
+            </div>
+
+            <div class="conteiner__box__info__year">
+                <h4>Ano:</h4>
+                <h4>{{ car.year }}</h4>
+            </div>
+
+            <div class="conteiner__box__info__price">
+                <h4>Preço:</h4>
+                <input class="conteiner__box__info__price__input" *ngIf="editCar == true" type="text" value="{{ car.price }}" [(ngModel)]="car.price">
+                <h4 *ngIf="editCar == false">{{ car.price | currency:'BRL' }}</h4>
+            </div>
+
+            <div class="conteiner__box__info__fuel">
+                <h4>Combustivél:</h4>
+                <input class="conteiner__box__info__fuel__input" *ngIf="editCar == true" type="text" value="{{ car.fuel }}" [(ngModel)]="car.fuel"> 
+                <h4 *ngIf="editCar == false">{{ car.fuel }}</h4>
+            </div>
+
+            <div class="conteiner__box__info__armored">
+                <h4>Blindado:</h4>
+                <select class="conteiner__box__info__armored__select" *ngIf="editCar == true" type="text" [(ngModel)]="car.armored">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                </select>
+                <h4 *ngIf="car.armored == true && editCar == false">Sim</h4>
+                <h4 *ngIf="car.armored == false && editCar == false">Não</h4>
+            </div>
+
+            <div class="conteiner__box__info__power">
+                <h4>Potência:</h4>
+                <input class="conteiner__box__info__power__input" *ngIf="editCar == true" type="text" value="{{ car.power }}" [(ngModel)]="car.power">
+                <h4 *ngIf="editCar == false">{{ car.power }}cv</h4>
+            </div>
+
+            <div class="conteiner__box__info__transmission">
+                <h4>Transmissão:</h4>
+                <select class="conteiner__box__info__transmission__select" *ngIf="editCar == true" type="text" [(ngModel)]="car.transmission">
+                    <option value="Manual">Manual</option>
+                    <option value="Automatico">Automático</option>
+                </select>
+                <h4 *ngIf="editCar == false">{{ car.transmission }}</h4>
+            </div>
+
+            <div class="conteiner__box__button">
+                <button routerLink="/garagem" (click)="buyCar(car)" class="conteiner__box__button__btn">{{ car.status }}</button>
+                <button routerLink="/loja" (click)="removeCar(car.id)" class="conteiner__box__button__lix">
+                    <img class="conteiner__box__button__lix__img" src="https://cdn-icons-png.flaticon.com/512/18/18297.png" alt="">
+                </button>
+            </div>
+            <div class="conteiner__box__edit">
+                <button (click)="editCard()" routerLink="/loja" class="conteiner__box__edit__save">Salvar</button>
+                <button (click)="enableEdit()" class="conteiner__box__edit__lapis">
+                    <img class="conteiner__box__button__lix__img" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Lapis-icon.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<header>
+    <div class="header__list">
+      <ul class="header__list__options">
+        <dt routerLink="/garagem" class="header__list__options__garagem">Minha Garagem</dt>
+        <dt routerLink="/loja"  class="header__list__options__venda">Loja de Carros</dt>
+      </ul>
+    </div>
+</header>
+
+<div class="cardadic">
+    <div class="cardadic__info">
+        <div class="cardadic__info__model">
+            <h3>Modelo:</h3>
+            <input type="text" class="input__modelo" [(ngModel)]="car.model">
+        </div>
+        <div class="cardadic__info__brand">
+            <h3>Marca:</h3>
+            <input type="text" class="input__marca" [(ngModel)]="car.brand">
+        </div>
+        <div class="cardadic__info__color">
+            <h3>Cor:</h3>
+            <input type="text" class="input__cor" [(ngModel)]="car.color">
+        </div>
+        <div class="cardadic__info__year">
+            <h3>Ano:</h3>
+            <input type="number" class="input__ano" [(ngModel)]="car.year">
+        </div>
+        <div class="cardadic__info__price">
+            <h3>Preço:</h3>
+            <input type="number" class="input__preco" [(ngModel)]="car.price">
+        </div>
+        <div class="cardadic__info__urlImage">
+            <h3>Imagem:</h3>
+            <input type="text" class="input__preco" [(ngModel)]="car.urlImage">
+        </div>
+        <div class="cardadic__info__comb">
+            <h3>Combustivél:</h3>
+            <input type="text" [(ngModel)]="car.fuel">
+        </div>
+        <div class="cardadic__info__pot">
+            <h3>Potência:</h3>
+            <input type="number" [(ngModel)]="car.power">
+        </div>
+        <div class="cardadic__info__blind">
+            <h3>Blindado:</h3>
+            <select type="text" [(ngModel)]="car.armored">
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+            </select>
+        </div>
+        <div class="cardadic__info__tran">
+            <h3>Transmissão:</h3>
+            <select type="text" [(ngModel)]="car.transmission">
+                <option value="Manual">Manual</option>
+                <option value="Automatico">Automatico</option>
+            </select>
+        </div>
+        <div class="cardadic__info__button">
+            <button routerLink="/loja" (click)="newCar()" class="cardadic__info__button__btn">Adicionar</button>
+        </div>
+    </div>
+</div>
